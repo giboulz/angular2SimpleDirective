@@ -4,6 +4,7 @@
 
 <p [style.background]="'lime'">I am green with envy!</p>
 
+<h1>{{color}}</h1>
 
 <h1>My First Attribute Directive</h1>
 <p myHighLight>Highlight me!</p>
@@ -26,3 +27,8 @@
 <p [myHighLight]="color" defaultColor="violet">
   Highlight me too!
 </p>
+
+
+
+<div *gpmShowOnPrivilege="'app1:perf:read,app1:perf:write'">coucou should show </div>
+<div *gpmShowOnPrivilege="'app2:perf:read,app2:perf:write'">coucou should not show</div>
