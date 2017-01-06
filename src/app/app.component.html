@@ -1,3 +1,28 @@
 <h1>
   {{title}}
 </h1>
+
+<p [style.background]="'lime'">I am green with envy!</p>
+
+
+<h1>My First Attribute Directive</h1>
+<p myHighLight>Highlight me!</p>
+
+<p myHighlight [myHighLight]="color">Highlighted with parent component's color</p>
+
+<p [myHighLight]="color">Highlight me!</p>
+
+
+<h1>My First Attribute Directive</h1>
+
+<h4>Pick a highlight color</h4>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<p [myHighLight]="color">Highlight me!</p>
+
+<p [myHighLight]="color" defaultColor="violet">
+  Highlight me too!
+</p>
