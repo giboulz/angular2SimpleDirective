@@ -2,6 +2,13 @@
   {{title}}
 </h1>
 
+<app-collapse-emeter></app-collapse-emeter>
+<button type="button" class="btn btn-primary"
+        (click)="isCollapsed = !isCollapsed">Toggle collapse from parent component
+</button>
+<app-collaspe-test [isCollapsed]="isCollapsed"></app-collaspe-test>
+
+
 <p [style.background]="'lime'">I am green with envy!</p>
 
 <h1>{{color}}</h1>
@@ -28,7 +35,12 @@
   Highlight me too!
 </p>
 
+<h1>Test sur directive de privilege</h1>
 
-
-<div *gpmShowOnPrivilege="'app1:perf:read,app1:perf:write'">coucou should show </div>
-<div *gpmShowOnPrivilege="'app2:perf:read,app2:perf:write'">coucou should not show</div>
+<div>{{Privilege.appPerfRead}}</div>
+<!-- we dont use the Privilege.appPerfRead in the privilege check because : 
+*it is easier to read in his native form
+*there is no compilation error if miss spell anything after Privilege.something. there is only an error in the html page. 
+-->
+<div *gpmShowOnPrivilege="'app1:perf:read,app1:perf:write'">this block should show </div>
+<div *gpmShowOnPrivilege="'app2:perf:read,app2:perf:write'">this block should not show</div> 

@@ -6,23 +6,21 @@ import { TemplateRef, ViewContainerRef } from '@angular/core';
 })
 export class ShowOnPrivilegeDirective {
 
-  @Input('allowOn') authorizedPrivilege: string;
-
   constructor(
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef) {
   }
 
 
-  @Input('gpmShowOnPrivilege') set allowOn(privilege: string) {
-    console.log(privilege);
+  @Input('gpmShowOnPrivilege') set allowOn(privilege: String) {
+    //console.log(privilege);
 
-    //forcer les comparaisons en minuscule
     if (privilege.indexOf('app1') >= 0) {
       this.viewContainer.createEmbeddedView(this.templateRef);
     } else {
       this.viewContainer.clear();
     }
+
 
   }
 
